@@ -1,0 +1,46 @@
+﻿@model Pintxopote.Models.Taberna
+
+
+<div class="container">
+    <div class="row">
+        <div class="box">
+
+            <!-- EGITEKO -->
+                
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                @Html.DisplayFor(modelItem => Model.izena)
+                                <!--<small>Item Subheading</small>-->
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                             <!--ARGAZKIA 750x500 -->
+                            <img class="img-responsive pintxoa-argazkia pintxoa-argazkia" src="@Html.DisplayFor(modelItem => Model.argazkia)" alt="">
+                        </div>
+                        <div class="col-md-4">
+                            <h3>Deskribapena</h3>
+                            <p>@Html.DisplayFor(modelItem => Model.deskribapena)</p>
+                            <h3>Kontaktua: </h3>
+                            <ul>
+                                <li>@Html.DisplayFor(modelItem => Model.kokapena)</li>
+                                <li>@Html.DisplayFor(modelItem => Model.kontaktua)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="page-header">Bere Pintxoak</h3>
+                        </div>
+                    </div>
+                    @Component.Invoke("PintxoakTaberna", Model.Id)
+                    <hr>
+            
+        </div>
+    </div>
+</div>

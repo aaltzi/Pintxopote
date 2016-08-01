@@ -1,0 +1,110 @@
+﻿@{
+    ViewData["Title"] = "Hasiera";
+}
+
+    <div class="container">
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12 text-center">
+                    <h1 class="brand-name">Pintxopote</h1>
+                    <h2 class="brand-before">
+                        <small>Zumaia</small>
+                    </h2>
+                    <hr class="tagline-divider">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">
+                        Zer da 
+                        <strong> Pintxopotea?</strong>
+                    </h2>
+                    <hr>
+                    <img class="img-responsive img-border img-left" src="~/images/intro-pic.jpg" alt="">
+                    <hr class="visible-xs">
+                    <p>Hainbat eta hainbat tabernariek aspaldiko poteoko ohitura berreskuratu nahi zuten eta bide batez beraien onurarako irabaziak izan.</p>
+                    <p>Antxina antxinako ohitura da poteatzea, bure aitonamonek egiten zuten eta gaur egun gazteen artean galtzen ari den gauzetariko bat da. </p>
+                    <p>Gazteek ere, iniziatiba hau begi onez ikusten dute, diruz larri ibiltzen baitdira.</p>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="fb-like" data-href="https://www.facebook.com/Pintxopote-Zumaia-206469563033146/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+                        </div>
+                        <div class="col-md-2">
+                            <a href="https://twitter.com/Pintxopo_Zumaia" class="twitter-follow-button" data-show-count="false">Follow Pintxopo_Zumaia</a>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="g-plus" data-action="share" data-annotation="bubble" data-href="https://plus.google.com/113327152027938108903"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!--
+    
+
+    <div id="carousel-example-generic" class="carousel slide">
+                        <!-- Carrousel de imagenes de pintxos -->
+                        <!--<ol class="carousel-indicators hidden-xs">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <!-- Meter imagenes de los pintxos mas famosos -->
+                            <!-- Select de las mejores valoradas -->
+                            <!--<div class="item active">
+                                <img class="img-responsive img-full" src="http://i650.photobucket.com/albums/uu227/pintxopoteberria/tortilla-zalla_zps0gcytnoe.jpg" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive img-full" src="http://i650.photobucket.com/albums/uu227/pintxopoteberria/antxoa-zalla_zpsnuyoddsq.jpg" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive img-full" src="http://i650.photobucket.com/albums/uu227/pintxopoteberria/foie-zalla_zpscqogmpis.jpg?t=1447419451" alt="">
+                            </div>
+                        </div>
+                        <!-- Controlak aurrera eta etzera -->
+                        <!--<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                            <span class="icon-prev"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                            <span class="icon-next"></span>
+                        </a>
+                    </div>
+
+
+-->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Script Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //Abiadura milisegundotan
+    })
+    </script>
+<div id="fb-root"></div>
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Inserta esta etiqueta en la sección "head" o justo antes de la etiqueta "body" de cierre. -->
+<script src="https://apis.google.com/js/platform.js" async defer>
+  {lang: 'es'}
+</script>
+<!-- Inserta esta invocación donde quieras. -->
+<script type="text/javascript">gapi.plus.go();</script>

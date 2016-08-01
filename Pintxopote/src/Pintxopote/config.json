@@ -1,0 +1,10 @@
+{
+  "AppSettings": {
+    "SiteTitle": "Pintxopote"
+  },
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=DESKTOP-6OSC2VD\\SQLEXPRESS;Database=Pintxopote;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+  }
+}

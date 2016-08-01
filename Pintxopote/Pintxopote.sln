@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A546EC4D-0B53-419E-959D-2D015586059C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D836ECC2-E814-4361-BF1D-8E796108493E}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Pintxopote", "src\Pintxopote\Pintxopote.xproj", "{29A5D3C7-37E2-48ED-82F5-02D804610286}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29A5D3C7-37E2-48ED-82F5-02D804610286}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29A5D3C7-37E2-48ED-82F5-02D804610286}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29A5D3C7-37E2-48ED-82F5-02D804610286}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29A5D3C7-37E2-48ED-82F5-02D804610286}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{29A5D3C7-37E2-48ED-82F5-02D804610286} = {A546EC4D-0B53-419E-959D-2D015586059C}
+	EndGlobalSection
+EndGlobal

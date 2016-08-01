@@ -1,0 +1,10 @@
+{
+  "AppSettings": {
+    "SiteTitle": "Pintxopote"
+  },
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-Pintxopote-c3e1f8a1-e528-4170-ad68-330598e6672e;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+  }
+}

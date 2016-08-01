@@ -1,0 +1,25 @@
+﻿.navbar-collapse{
+    height: 20%;
+}
+.container body-content {
+    padding-top:40px;
+}
+.brand{
+    padding-top:70px;
+}
+.espacio-enrow { margin-top:20px; }
+.pintxoa-deskribapena {
+    font-size: 1em;
+    font-style: oblique;
+}
+.pintxoa-argazkia{
+    /*DUDA BORDER*/
+    border: 1px solid black;
+    border-radius: 8px;
+}
+.taberna-argazkia{
+    margin-left: 40px;
+}
+.letrak-txuriz{
+    color: white;
+}

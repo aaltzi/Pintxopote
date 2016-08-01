@@ -1,0 +1,44 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Registratu";
+}
+
+<div class="row">
+    <div class="box">
+        <h2>Registratu</h2>
+        <form asp-controller="Account" asp-action="Register" method="post" class="form-horizontal" role="form">
+            <h4>Sortu Kontu berria</h4>
+            <hr />
+            <div asp-validation-summary="ValidationSummary.All" class="text-danger"></div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">E-maila:</label>
+                <div class="col-md-10">
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Pasahitza:</label>
+                <div class="col-md-10">
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Pasahitza baieztatu:</label>
+                <div class="col-md-10">
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" class="btn btn-default">Registratu</button>
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+        @section Scripts {
+            @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+        }

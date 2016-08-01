@@ -1,0 +1,208 @@
+﻿@{
+    ViewData["Title"] = "Pintxoak";
+    int cont = 0;
+    int totcont = 0;
+}
+@model IEnumerable<Pintxopote.Models.Pintxo>
+    <div class="container">
+        <div class="row">
+            @Component.Invoke("PintxoOnena");
+        </div>
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">
+                        Pintxo
+                        <strong>Gehiago</strong>
+                    </h2>
+                    <hr>
+                </div>
+                <!-- Hemen pintxo guztiak -->
+
+                <!-- BADAEZPADA Plantilla
+                    <div class="row">
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                        </a>
+                        <h3>{Pintxoa}
+                            <small><a href="#">Taberna</a></small>
+                        </h3>
+                        <input id="kartik" class="rating" data-stars="5" data-step="0.1" />
+                        <button type="button" class="btn btn-primary">Eman Botoa</button>
+                        <p>[Deskribapena]</p>
+                    </div>
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                        </a>
+                        <h3>{Pintxoa}
+                            <small><a href="#">Taberna</a></small>
+                        </h3>
+                        <input id="kartik" class="rating" data-stars="5" data-step="0.1" />
+                        <button type="button" class="btn btn-primary">Eman Botoa</button>
+                        <p>[Deskribapena]</p>
+                    </div>
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                        </a>
+                        <h3>{Pintxoa}
+                            <small><a href="#">Taberna</a></small>
+                        </h3>
+                        <input id="kartik" class="rating" data-stars="5" data-step="0.1" />
+                        <button type="button" class="btn btn-primary">Eman Botoa</button>
+                        <p>[Deskribapena]</p>
+                    </div>
+                </div>
+                    -->
+                
+                <div class="row">
+                    @foreach (var item in Model)
+                            {
+                                totcont++;
+
+                                if (cont == 3)
+                                {
+                                    cont = 0;
+                            <div class="row">
+                                <div class="col-md-12 espacio-enrow"></div>
+                            </div>
+
+                        }
+                    cont++;
+                        var pinId = item.Id;
+                        var tabId = item.Taberna.Id;
+                            <!--Html.DisplayFor(modelItem => item.izena)-->
+                            <div class="col-md-4 portfolio-item" id="pintxo_@pinId">
+                                <!--<form asp-controller="Balorazioa" asp-action="Balorazioa" method="post" role="form">-->
+                                    <img class="img-responsive pintxoa-argazkia" src="@Html.DisplayFor(modelItem => item.argazkia)" alt="">
+                                    <h3>
+                                        @Html.DisplayFor(modelItem => item.izena)
+                                        <br>
+                                        <!-- Taberna izena -->
+                                        <small><a id="@tabId" class="tabernaURL">@Html.DisplayFor(modelItem => item.Taberna.izena)</a></small>
+                                    </h3>
+                                    <input id="nota_@pinId" class="rating" data-stars="5" data-step="1" />
+                                    <!--<button type="button" class="btn btn-primary">Eman Botoa</button> -->
+                                    <!--<a class="btn btn-primary" id="pinId">Eman Botoa</a>-->
+                                    <button type="submit" class="btn btn-primary" id="@pinId">Eman Botoa</button>
+                                    <!--Html.ActionLink("Eman Botoa", "Bidalita", new { id = item.Id }, new {class= "btn btn-primary" })-->
+                                    <p class="pintxoa-deskribapena">@Html.DisplayFor(modelItem => item.deskribapena)</p>
+                                <!--</form>-->
+                            </div>   
+                        
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+    $(function () {
+        $('.tabernaURL').click(function () {
+            var idURL = this.id;
+            window.location.href = "/Home/Taberna/"+idURL;
+        });
+    });
+    /** BOTOA EMAN / EGUNERATU **/
+    $(function () {
+        $('.btn').click(function () {
+
+            var idBotoia = this.id;
+
+            var idIzarra = "nota_"+idBotoia;
+
+            var span = document.getElementById('pintxo_' + idBotoia);
+            var row = span.getElementsByTagName('div')[0].childNodes[2];
+            var txtNota = row.getElementsByTagName('span')[0].innerHTML;
+            var nota = 0;
+
+            switch (txtNota) {
+                case 'Izar Bat':
+                    nota = 1;
+                    break;
+                case '2 Izar':
+                    nota = 2;
+                    break;
+                case '3 Izar':
+                    nota = 3;
+                    break;
+                case '4 Izar':
+                    nota = 4;
+                    break;
+                case '5 Izar':
+                    nota = 5;
+                    break;
+            }
+                $.ajax({
+                    url: '@Url.Action("Balorazioa", "Balorazioa")',
+                    type: "POST",
+                    data: { idPintxo: idBotoia , nota:nota},
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert(xhr.status);
+                        alert(thrownError);
+                    },
+                    success: function (result) {
+                        window.location.href = "/Balorazioa/"+result;
+                            //alert(result);
+                            
+                    }
+                });
+            
+        });
+    });
+    /** IZARRAK EGUNERATU **/
+    $(function () {
+        $.ajax({
+            url: '@Url.Action("Eguneratu", "Balorazioa")',
+            type: "GET",
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr.status);
+                alert(thrownError);
+            },
+            success: function (result) {
+                for(var i=0; i<=@totcont; i++){
+
+                    for (var j = 0; j < Object.keys(result).length; j++) {
+                        
+                        var span = document.getElementById('pintxo_' + result[j].pintxoId).id;
+                        var row = document.getElementById('pintxo_' + result[j].pintxoId).children;
+                        var div = row[2].children;
+                        var div1 = div[1].children;
+                        var div2 = div[2].children;
+
+                        switch(result[j].nota){
+                            case 1:
+                                div2[0].className = "label label-danger";
+                                div2[0].innerHTML= "Izar bat";
+                                div1[0].setAttribute("style","width:20%");
+                                break;
+                            case 2:
+                                div2[0].className = "label label-warning";
+                                div2[0].innerHTML= "2 Izar";
+                                div1[0].setAttribute("style","width:40%");
+                                break;
+                            case 3:
+                                div2[0].className = "label label-info";
+                                div2[0].innerHTML= "3 Izar";
+                                div1[0].setAttribute("style","width:60%");
+                                break;
+                            case 4:
+                                div2[0].className = "label label-primary";
+                                div2[0].innerHTML= "4 Izar";
+                                div1[0].setAttribute("style","width:80%");
+                                break;
+                            case 5:
+                                div2[0].className = "label label-success";
+                                div2[0].innerHTML= "5 Izar";
+                                div1[0].setAttribute("style","width:100%");
+                                break;
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>

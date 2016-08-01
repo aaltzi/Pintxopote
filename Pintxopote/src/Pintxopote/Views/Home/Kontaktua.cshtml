@@ -1,0 +1,107 @@
+﻿
+@model Pintxopote.Models.EmailFormModel
+@{
+    ViewData["Title"] = "Kontaktua";
+}
+    <div class="container">
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">
+                        Kontaktua
+                        <strong>Informazioa</strong>
+                    </h2>
+                    <hr>
+                </div>
+                <div class="col-md-8">
+                    <!-- Google maps mapa txertatu zumaia aerdia delarik -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2903.8336434394137!2d-2.260598584513773!3d43.296805379135094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd51cf16aaaaaaab%3A0x62706d8f2b906cf3!2sZumaiako+Udala+-+Ayuntamiento+de+Zumaia!5e0!3m2!1ses!2ses!4v1454572011714" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+                </div>
+                <div class="col-md-4">
+                    <p>
+                        Telefonoa:
+                        <strong>692 71 90 56</strong>
+                    </p>
+                    <p>
+                        Email:
+                        <strong><a href="mailto:pintxopoteberria@gmail.com">pintxopoteberria@gmail.com</a></strong>
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="box">
+                
+                    <div class="col-lg-12">
+                        <hr>
+                        <h2 class="intro-text text-center">
+                            Kontaktua
+                            <strong>Formularioa</strong>
+                        </h2>
+                        <hr>
+                        <p>Bete itzazu hurrengo Formularioa kontaktuan jartzeko:</p>
+                        <form asp-controller="Mezua" asp-action="Kontaktua" method="post" role="form">
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+                            <div class="row">
+                                <div class="row">
+                                    <div class="form-group col-lg-4">
+                                        <div class="row">
+                                            @Html.LabelFor(m => m.FromIzena, new { @class = "col-md-10 control-label" })
+                                        </div>
+                                        <div class="col-md-10">
+                                            @Html.TextBoxFor(m => m.FromIzena, new { @class = "form-control", @id = "izena" })
+                                            @Html.ValidationMessageFor(m => m.FromIzena)
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                        <div class="row">
+                                            @Html.LabelFor(m => m.FromEmail, new { @class = "col-md-10 control-label" })
+                                        </div>
+                                        <div class="col-md-10">
+                                            @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(m => m.FromEmail)
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                        <div class="row">
+                                            @Html.LabelFor(m => m.FromTelefonoa, new { @class = "col-md-10 control-label" })
+                                        </div>
+                                        <div class="col-md-10">
+                                            @Html.TextBoxFor(m => m.FromTelefonoa, new { @class = "form-control", @id = "telefonoa" })
+                                            @Html.ValidationMessageFor(m => m.FromTelefonoa)
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-8">
+                                            <div class="row">
+                                                @Html.LabelFor(m => m.Mezua, new { @class = "col-md-10 control-label" })
+                                            </div>
+                                            <div class="col-md-10">
+                                                @Html.TextAreaFor(m => m.Mezua, new { @class = "form-control", @id = "mezua" })
+                                                @Html.ValidationMessageFor(m => m.Mezua)
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <div class="g-recaptcha" data-sitekey="6LelIBcTAAAAAMv4znk7K76usQsR9PJL-mYmaLU8"></div>
+                                        </div>
+                                        <!-- COMBO BOX! Kexa: Bai/Ez -->
+                                    </div>
+                                    <div class="form-group col-lg-12">
+                                        <button type="submit" class="btn btn-default">Bidali</button>
+                                    </div>
+                                </div>
+                            }
+                        </form>
+                    </div>
+            </div>
+        </div>
+    </div>
+<script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
