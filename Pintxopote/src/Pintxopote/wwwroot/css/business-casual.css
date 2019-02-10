@@ -7,7 +7,6 @@
 body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     background: url('../images/fondopantalla5.jpg') no-repeat center center fixed;
-    filter: blur(10px);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
